@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="NopCommerce Automation Testing">
+    <parameter name="url" value="https://www.facebook.com/"></parameter>
+<!--    <parameter name="adminUrl" value="http://localhost/admin"></parameter>-->
+    <test name="Run on Firefox Browser">
+        <parameter name="browser" value="firefox"></parameter>
+        <classes>
+            <class name="com.facebook.cases.Level_18_Undisplayed"/>
+<!--            <class name="com.nopcomerce.user.Level_06_Page_Generator_04_demo"/>-->
+        </classes>
+    </test> <!-- Test -->
+
+</suite> <!-- Suite -->
