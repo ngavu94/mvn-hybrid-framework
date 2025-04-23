@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="NopCommerce Automation Testing">
+
+    <listeners>
+        <listener class-name="commons.MethodListener"></listener>
+    </listeners>
+    <parameter name="url" value="http://localhost:90/orangehrm/orangehrm-5.7/web/index.php/auth/login"></parameter>
+    <parameter name="email" value="ngavt@gmail.com"></parameter>
+    <parameter name="firstName" value="nga"></parameter>
+    <parameter name="lastName" value="Vu"></parameter>
+    <parameter name="password" value="12345"></parameter>
+
+    <test name="Run on Chrome Browser">
+        <parameter name="browser" value="firefox"></parameter>
+        <classes>
+            <class name="com.nopcomerce.user.Level_27_Data_POJO"></class>
+        </classes>
+<!--        <groups>-->
+<!--            <run>-->
+<!--                <include name="regression"/>-->
+<!--            </run>-->
+<!--        </groups>-->
+<!--        <classes>-->
+<!--&lt;!&ndash;            <class name="com.orangehrm.pim.PIM_01_Employee"/>&ndash;&gt;-->
+<!--            -->
+<!--        </classes>-->
+    </test> <!-- Test -->
+
+</suite> <!-- Suite -->

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="NopCommerce Automation Testing">
+    <parameter name="url" value="https://www.jqueryscript.net/demo/CRUD-Data-Grid-Plugin-jQuery-Quickgrid/"></parameter>
+<!--    <parameter name="adminUrl" value="http://localhost/admin"></parameter>-->
+    <test name="Run on Firefox Browser">
+        <parameter name="browser" value="firefox"></parameter>
+        <classes>
+            <class name="com.jquerry.cases.Level_11_DataTable"/>
+<!--            <class name="com.nopcomerce.user.Level_06_Page_Generator_04_demo"/>-->
+        </classes>
+    </test> <!-- Test -->
+<!--    <test name="Run on Chrome Browser">-->
+<!--        <parameter name="browser" value="chrome"></parameter>-->
+<!--        <classes>-->
+<!--            &lt;!&ndash;            <class name="com.nopcomerce.user.Level_02_BasePage_I_Init"/>&ndash;&gt;-->
+<!--            <class name="com.nopcomerce.user.Level_06_Page_Generator_02"/>-->
+<!--        </classes>-->
+<!--    </test> &lt;!&ndash; Test &ndash;&gt;-->
+<!--    <test name="Run on Edge Browser">-->
+<!--        <parameter name="browser" value="edge"></parameter>-->
+<!--        <classes>-->
+<!--            &lt;!&ndash;            <class name="com.nopcomerce.user.Level_02_BasePage_I_Init"/>&ndash;&gt;-->
+<!--            <class name="com.nopcomerce.user.Level_06_Page_Generator_02"/>-->
+<!--        </classes>-->
+<!--    </test> &lt;!&ndash; Test &ndash;&gt;-->
+</suite> <!-- Suite -->

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="none" name="NopCommerce Automation Testing" >
+
+    <listeners>
+        <listener class-name="commons.MethodListener"></listener>
+<!--        <listener class-name="jiraConfigs.JiraListener"></listener>-->
+        <listener class-name="reportConfigs.ExtentTestListener"></listener>
+    </listeners>
+    <parameter name="url" value="http://localhost/"></parameter>
+<!--    <parameter name="url" value="https://demo.nopcommerce.com/"></parameter>-->
+<!--    <parameter name="adminUrl" value="http://localhost/admin"></parameter>-->
+    <test name="Run on Firefox Browser" preserve-order="false">
+        <parameter name="browser" value="firefox"></parameter>
+        <classes>
+            <class name="com.nopcomerce.demo.TC_MyAccount"/>
+<!--            <class name="com.nopcomerce.demo.TC_Login"/>-->
+        </classes>
+    </test> <!-- Test -->
+
+</suite> <!-- Suite -->
