@@ -13,12 +13,12 @@ public class UserLoginPO extends BasePage {
 
     public void enterToEmailTextbox(String email) {
         waitForElementVisible(driver, UserLoginPageUI.EMAIL_TEXTBOX);
-        senkeysToElement(driver, UserLoginPageUI.EMAIL_TEXTBOX, email);
+        sendkeysToElement(driver, UserLoginPageUI.EMAIL_TEXTBOX, email);
     }
 
     public void enterToPasswordTextbox(String password) {
         waitForElementVisible(driver, UserLoginPageUI.PASSWORD_TEXTBOX);
-        senkeysToElement(driver, UserLoginPageUI.PASSWORD_TEXTBOX, password);
+        sendkeysToElement(driver, UserLoginPageUI.PASSWORD_TEXTBOX, password);
     }
 
     public UserHomePO clickLoginToSystem() {

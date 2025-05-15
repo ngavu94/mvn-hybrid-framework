@@ -43,7 +43,7 @@ public class GlobalConstants {
 
     //html report folder
     public final static String REPORTING_PATH=PROJECT_PATH+ SEPARATOR+"htmlReportNG"+SEPARATOR;
-    public final static String EXTENT_PATH=PROJECT_PATH+SEPARATOR+"htmlExtentReport"+SEPARATOR;
+    public final static String EXTENT_PATH=PROJECT_PATH+SEPARATOR+"test-output"+SEPARATOR+"html"+SEPARATOR;
     public final static String ALLURE_PATH=PROJECT_PATH+"/htmlAllure/";
 
     //Data test environment

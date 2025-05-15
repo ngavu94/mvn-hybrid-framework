@@ -41,17 +41,17 @@ public class Level_02_BasePage_I_Init {
         basePage.waitForElementClickable(driver, "//input[@id='gender-male']");
         basePage.clickToElement(driver, "//input[@id='gender-male']");
 
-        basePage.senkeysToElement(driver, "//input[@id='FirstName']",firstName);
+        basePage.sendkeysToElement(driver, "//input[@id='FirstName']",firstName);
 
-        basePage.senkeysToElement(driver, "//input[@id='LastName']",lastName);
+        basePage.sendkeysToElement(driver, "//input[@id='LastName']",lastName);
 
 //        new Select(driver.findElement(By.cssSelector("select[name='DateOfBirthDay']"))).deselectByVisibleText(day);
 //        new Select(driver.findElement(By.cssSelector("select[name='DateOfBirthMonth']"))).deselectByVisibleText(month);
 //        new Select(driver.findElement(By.cssSelector("select[name='DateOfBirthYear']"))).deselectByVisibleText(year);
-        basePage.senkeysToElement(driver, "//input[@id='Email']",email);
-        basePage.senkeysToElement(driver, "//input[@id='Company']",companyName);
-        basePage.senkeysToElement(driver, "//input[@id='Password']",password);
-        basePage.senkeysToElement(driver, "//input[@id='ConfirmPassword']",password);
+        basePage.sendkeysToElement(driver, "//input[@id='Email']",email);
+        basePage.sendkeysToElement(driver, "//input[@id='Company']",companyName);
+        basePage.sendkeysToElement(driver, "//input[@id='Password']",password);
+        basePage.sendkeysToElement(driver, "//input[@id='ConfirmPassword']",password);
 
         basePage.waitForElementClickable(driver, "//button[@id='register-button']");
         basePage.clickToElement(driver, "//button[@id='register-button']");
@@ -71,8 +71,8 @@ public class Level_02_BasePage_I_Init {
         basePage.clickToElement(driver, "//a[@class='ico-login']");
 
         basePage.waitForElementVisible(driver, "//input[@id='Email']");
-        basePage.senkeysToElement(driver, "//input[@id='Email']",email);
-        basePage.senkeysToElement(driver, "//input[@id='Password']",password);
+        basePage.sendkeysToElement(driver, "//input[@id='Email']",email);
+        basePage.sendkeysToElement(driver, "//input[@id='Password']",password);
         ////button[@class='button-1 login-button']
 
         basePage.waitForElementClickable(driver, "button[@class='button-1 login-button']");

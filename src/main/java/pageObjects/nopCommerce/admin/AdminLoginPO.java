@@ -20,13 +20,13 @@ public class AdminLoginPO extends BasePage {
         //wait
         waitForElementVisible(driver, AdminLoginPageUI.EMAIL_TEXTBOX);
         //enter
-        senkeysToElement(driver, AdminLoginPageUI.EMAIL_TEXTBOX, email);
+        sendkeysToElement(driver, AdminLoginPageUI.EMAIL_TEXTBOX, email);
     }
 
     public void enterToPasswordTextbox(String pass) {
         //wait
         waitForElementVisible(driver, AdminLoginPageUI.PASSWORD_TEXTBOX);
         //enter
-        senkeysToElement(driver, AdminLoginPageUI.PASSWORD_TEXTBOX, pass);
+        sendkeysToElement(driver, AdminLoginPageUI.PASSWORD_TEXTBOX, pass);
     }
 }

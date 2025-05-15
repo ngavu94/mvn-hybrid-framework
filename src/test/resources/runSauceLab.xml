@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="none" name="SauceLab Automation Testing" >
+
+    <listeners>
+        <listener class-name="commons.MethodListener"></listener>
+<!--        <listener class-name="jiraConfigs.JiraListener"></listener>-->
+<!--        <listener class-name="reportConfigs.ExtentTestListener"></listener>-->
+    </listeners>
+    <parameter name="url" value="https://www.saucedemo.com/"></parameter>
+<!--    <parameter name="adminUrl" value="http://localhost/admin"></parameter>-->
+    <test name="Run on Firefox Browser" preserve-order="false">
+        <parameter name="browser" value="firefox"></parameter>
+        <classes>
+            <class name="com.saucelab.Level_31_Sort_ASC_DESC"/>
+        </classes>
+    </test> <!-- Test -->
+
+</suite> <!-- Suite -->

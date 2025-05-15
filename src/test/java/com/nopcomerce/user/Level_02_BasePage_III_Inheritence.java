@@ -41,17 +41,17 @@ public class Level_02_BasePage_III_Inheritence extends BasePage {
         waitForElementClickable(driver, "//input[@id='gender-male']");
         clickToElement(driver, "//input[@id='gender-male']");
 
-        senkeysToElement(driver, "//input[@id='FirstName']",firstName);
+        sendkeysToElement(driver, "//input[@id='FirstName']",firstName);
 
-        senkeysToElement(driver, "//input[@id='LastName']",lastName);
+        sendkeysToElement(driver, "//input[@id='LastName']",lastName);
 
 //        new Select(driver.findElement(By.cssSelector("select[name='DateOfBirthDay']"))).deselectByVisibleText(day);
 //        new Select(driver.findElement(By.cssSelector("select[name='DateOfBirthMonth']"))).deselectByVisibleText(month);
 //        new Select(driver.findElement(By.cssSelector("select[name='DateOfBirthYear']"))).deselectByVisibleText(year);
-        senkeysToElement(driver, "//input[@id='Email']",email);
-        senkeysToElement(driver, "//input[@id='Company']",companyName);
-        senkeysToElement(driver, "//input[@id='Password']",password);
-        senkeysToElement(driver, "//input[@id='ConfirmPassword']",password);
+        sendkeysToElement(driver, "//input[@id='Email']",email);
+        sendkeysToElement(driver, "//input[@id='Company']",companyName);
+        sendkeysToElement(driver, "//input[@id='Password']",password);
+        sendkeysToElement(driver, "//input[@id='ConfirmPassword']",password);
 
         waitForElementClickable(driver, "//button[@id='register-button']");
         clickToElement(driver, "//button[@id='register-button']");
@@ -71,8 +71,8 @@ public class Level_02_BasePage_III_Inheritence extends BasePage {
         clickToElement(driver, "//a[@class='ico-login']");
 
         waitForElementVisible(driver, "//input[@id='Email']");
-        senkeysToElement(driver, "//input[@id='Email']",email);
-        senkeysToElement(driver, "//input[@id='Password']",password);
+        sendkeysToElement(driver, "//input[@id='Email']",email);
+        sendkeysToElement(driver, "//input[@id='Password']",password);
         ////button[@class='button-1 login-button']
 
         waitForElementClickable(driver, "//button[@class='button-1 login-button']");

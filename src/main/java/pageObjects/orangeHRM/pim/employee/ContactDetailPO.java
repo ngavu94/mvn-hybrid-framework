@@ -16,34 +16,34 @@ public class ContactDetailPO extends EmployeeTabs{
         //wait
         waitForElementVisible(driver, ContactDetailPageUI.STREET_1_TEXTBOX);
         //enter
-        senkeysToElement(driver, ContactDetailPageUI.STREET_1_TEXTBOX, street1);
+        sendkeysToElement(driver, ContactDetailPageUI.STREET_1_TEXTBOX, street1);
     }
 
     public void enterToStreet2Textbox(String street2) {
         //wait
         waitForElementVisible(driver, ContactDetailPageUI.STREET_2_TEXTBOX);
         //enter
-        senkeysToElement(driver, ContactDetailPageUI.STREET_2_TEXTBOX, street2);
+        sendkeysToElement(driver, ContactDetailPageUI.STREET_2_TEXTBOX, street2);
     }
 
     public void enterToCityTextbox(String cityName) {
         //wait
         waitForElementVisible(driver, ContactDetailPageUI.CITY_TEXTBOX);
         //enter
-        senkeysToElement(driver, ContactDetailPageUI.CITY_TEXTBOX, cityName);
+        sendkeysToElement(driver, ContactDetailPageUI.CITY_TEXTBOX, cityName);
     }
 
     public void enterToStateProvinceTextbox(String stateProvince) {
         //wait
         waitForElementVisible(driver, ContactDetailPageUI.STATE_PROVINCE_TEXTBOX);
         //enter
-        senkeysToElement(driver, ContactDetailPageUI.STATE_PROVINCE_TEXTBOX, stateProvince);
+        sendkeysToElement(driver, ContactDetailPageUI.STATE_PROVINCE_TEXTBOX, stateProvince);
     }
     public void enterToZipPostalCodeTextbox(String postalCode) {
         //wait
         waitForElementVisible(driver, ContactDetailPageUI.ZIP_POSTAL_CODE_TEXTBOX);
         //enter
-        senkeysToElement(driver, ContactDetailPageUI.ZIP_POSTAL_CODE_TEXTBOX, postalCode);
+        sendkeysToElement(driver, ContactDetailPageUI.ZIP_POSTAL_CODE_TEXTBOX, postalCode);
     }
 
     public void selectToCountryDropdown(String country) {
@@ -56,28 +56,28 @@ public class ContactDetailPO extends EmployeeTabs{
         //wait
         waitForElementVisible(driver, ContactDetailPageUI.HOME_PHONE_TEXTBOX);
         //enter
-        senkeysToElement(driver, ContactDetailPageUI.HOME_PHONE_TEXTBOX, homePhoneNumber);
+        sendkeysToElement(driver, ContactDetailPageUI.HOME_PHONE_TEXTBOX, homePhoneNumber);
     }
 
     public void enterToMobilePhoneTextbox(String mobilePhoneNumber) {
         //wait
         waitForElementVisible(driver, ContactDetailPageUI.MOBILE_PHONE_TEXTBOX);
         //enter
-        senkeysToElement(driver, ContactDetailPageUI.MOBILE_PHONE_TEXTBOX, mobilePhoneNumber);
+        sendkeysToElement(driver, ContactDetailPageUI.MOBILE_PHONE_TEXTBOX, mobilePhoneNumber);
     }
 
     public void enterToWorkPhoneTextbox(String workPhoneNumber) {
         //wait
         waitForElementVisible(driver, ContactDetailPageUI.WORK_PHONE_TEXTBOX);
         //enter
-        senkeysToElement(driver, ContactDetailPageUI.WORK_PHONE_TEXTBOX, workPhoneNumber);
+        sendkeysToElement(driver, ContactDetailPageUI.WORK_PHONE_TEXTBOX, workPhoneNumber);
     }
 
     public void enterToWorkEmailTextbox(String workEmail) {
         //wait
         waitForElementVisible(driver, ContactDetailPageUI.WORK_EMAIL_TEXTBOX);
         //enter
-        senkeysToElement(driver, ContactDetailPageUI.WORK_EMAIL_TEXTBOX, workEmail);
+        sendkeysToElement(driver, ContactDetailPageUI.WORK_EMAIL_TEXTBOX, workEmail);
     }
 
     public void clickToSaveButtonInContactDetails() {

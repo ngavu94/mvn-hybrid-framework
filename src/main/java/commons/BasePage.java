@@ -8,9 +8,10 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageUIs.nopCommerce.BasePageUI;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class BasePage {
     public static BasePage getBasePage() {
@@ -28,25 +29,11 @@ public class BasePage {
     public boolean isElementDisplayed(WebDriver driver) {
         return driver.findElement(By.xpath("")).isDisplayed();
     }
+
     public boolean isElementDisplayed(WebDriver driver, String locator, String... restParameter) {
-        return getElement(driver,castParameter(locator,restParameter)).isDisplayed();
+        return getElement(driver, castParameter(locator, restParameter)).isDisplayed();
     }
 
-
-    //BTVN: Viet các ham
-//    get(url) ->OpenPageUrl -> MỞ 1 page
-//    getTitle ->String
-//    getCurrentURL ->String
-//    getPageSource -> String
-//    back
-//    forward
-//    refresh
-//    Alert
-//    waitAlertPresence
-//    acceptAlert
-//    cancelAlert
-//    getTextAlert
-//    sendkeyToAlert
     public void openPageUrl(WebDriver driver, String url) {
         driver.get(url);
     }
@@ -126,41 +113,38 @@ public class BasePage {
     public List<WebElement> getListElements(WebDriver driver, String locator) {
         return driver.findElements(getByLocator(locator));
     }
+
     public List<WebElement> getListElements(WebDriver driver, String locator, String... restParameter) {
-        return driver.findElements(getByLocator(castParameter(locator,restParameter)));
+        return driver.findElements(getByLocator(castParameter(locator, restParameter)));
     }
-    private String castParameter(String locator, String ...restParameter){
+
+    private String castParameter(String locator, String... restParameter) {
         return String.format(locator, (Object[]) restParameter);
     }
 
     //Truyền tham số loại gì, sẽ trả về locator tương ứng
     //String prefix: cc/id/class/name => By.css, By.id, By.class...
-    public By getByLocator(String prefixLocator){
+    public By getByLocator(String prefixLocator) {
         By by = null;
-        if(prefixLocator.toUpperCase().startsWith("ID")){
+        if (prefixLocator.toUpperCase().startsWith("ID")) {
             by = By.id(prefixLocator.substring(3));
-        }
-        else if(prefixLocator.toUpperCase().startsWith("CLASS")){
+        } else if (prefixLocator.toUpperCase().startsWith("CLASS")) {
             by = By.className(prefixLocator.substring(6));
-        }
-        else if(prefixLocator.toUpperCase().startsWith("NAME") ){
+        } else if (prefixLocator.toUpperCase().startsWith("NAME")) {
             by = By.name(prefixLocator.substring(5));
-        }
-        else if(prefixLocator.toUpperCase().startsWith("TAGNAME")){
+        } else if (prefixLocator.toUpperCase().startsWith("TAGNAME")) {
             by = By.tagName(prefixLocator.substring(8));
-        }
-        else if(prefixLocator.toUpperCase().startsWith("CSS")){
+        } else if (prefixLocator.toUpperCase().startsWith("CSS")) {
             by = By.cssSelector(prefixLocator.substring(4));
-        }
-        else if(prefixLocator.toUpperCase().startsWith("XPATH")){
+        } else if (prefixLocator.toUpperCase().startsWith("XPATH")) {
             by = By.xpath(prefixLocator.substring(6));
-        }
-        else {
+        } else {
             throw new RuntimeException("Locator type is not support!!!");
         }
 //        System.out.println(by);
         return by;
     }
+
     public By getByXpath(String locator) {
         return By.xpath(locator);
     }
@@ -168,34 +152,37 @@ public class BasePage {
     public void clickToElement(WebDriver driver, String locator) {
         getElement(driver, locator).click();
     }
+
     public void clickToElement(WebDriver driver, String locator, String... restParameter) {
         getElement(driver, castParameter(locator, restParameter)).click();
     }
 
-    public void senkeysToElement(WebDriver driver, String locator, String textInput) {
+    public void sendkeysToElement(WebDriver driver, String locator, String textInput) {
         //Nếu 1 element là thẻ input bị ẩn thì clear sẽ bị lỗi trên firefox
         //getElement(driver, locator).clear();
         Keys key = null;
-        if(GlobalConstants.OS_NAME.startsWith("Window")){
+        if (GlobalConstants.OS_NAME.startsWith("Window")) {
             key = Keys.CONTROL;
-        }else {
+        } else {
             key = Keys.COMMAND;
         }
-        getElement(driver, locator).sendKeys(Keys.chord(key,"a",Keys.BACK_SPACE));
+        getElement(driver, locator).sendKeys(Keys.chord(key, "a", Keys.BACK_SPACE));
         getElement(driver, locator).sendKeys(textInput);
     }
-    public void senkeysToElement(WebDriver driver, String locator, String textInput, String... restParameter) {
+
+    public void sendkeysToElement(WebDriver driver, String locator, String textInput, String... restParameter) {
         getElement(driver, castParameter(locator, restParameter)).clear();
         getElement(driver, castParameter(locator, restParameter)).sendKeys(textInput);
     }
 
     public void selectItemInDropdown(WebDriver driver, String locator, String textItem) {
         new Select(getElement(driver, locator))
-                .deselectByVisibleText(textItem);
+                .selectByVisibleText(textItem);
     }
+
     public void selectItemInDropdown(WebDriver driver, String locator, String textItem, String... restParameter) {
         new Select(getElement(driver, castParameter(locator, restParameter)))
-                .deselectByVisibleText(textItem);
+                .selectByVisibleText(textItem);
     }
 
     public String getSelectedItemInDropdown(WebDriver driver, String locator) {
@@ -230,9 +217,11 @@ public class BasePage {
     public String getElementAttribute(WebDriver driver, String locator, String attributeName) {
         return getElement(driver, locator).getAttribute(attributeName);
     }
+
     public String getElementAttribute(WebDriver driver, String locator, String attributeName, String... restParameter) {
-        return getElement(driver, castParameter(locator,restParameter)).getAttribute(attributeName);
+        return getElement(driver, castParameter(locator, restParameter)).getAttribute(attributeName);
     }
+
     public Dimension getElementSize(WebDriver driver, String locator) {
         return getElement(driver, locator).getSize();
     }
@@ -240,6 +229,7 @@ public class BasePage {
     public String getElementText(WebDriver driver, String locator) {
         return getElement(driver, locator).getText();
     }
+
     public String getElementText(WebDriver driver, String locator, String... restParameter) {
         return getElement(driver, castParameter(locator, restParameter)).getText();
     }
@@ -261,9 +251,10 @@ public class BasePage {
             getElement(driver, locator).click();
         }
     }
+
     public void checkToCheckboxOrRadio(WebDriver driver, String locator, String... restParameter) {
-        if (!getElement(driver, castParameter(locator,restParameter)).isSelected()) {
-            getElement(driver, castParameter(locator,restParameter)).click();
+        if (!getElement(driver, castParameter(locator, restParameter)).isSelected()) {
+            getElement(driver, castParameter(locator, restParameter)).click();
         }
     }
 
@@ -272,9 +263,10 @@ public class BasePage {
             getElement(driver, locator).click();
         }
     }
+
     public void unCheckToCheckbox(WebDriver driver, String locator, String... restParameter) {
-        if (getElement(driver, castParameter(locator,restParameter)).isSelected()) {
-            getElement(driver, castParameter(locator,restParameter)).click();
+        if (getElement(driver, castParameter(locator, restParameter)).isSelected()) {
+            getElement(driver, castParameter(locator, restParameter)).click();
         }
     }
 
@@ -285,6 +277,7 @@ public class BasePage {
     public boolean isElementSelected(WebDriver driver, String locator) {
         return getElement(driver, locator).isSelected();
     }
+
     public boolean isElementSelected(WebDriver driver, String locator, String... restParameter) {
         return getElement(driver, castParameter(locator, restParameter)).isSelected();
     }
@@ -324,8 +317,9 @@ public class BasePage {
     public void pressKeyToElement(WebDriver driver, String locator, Keys key) {
         new Actions(driver).sendKeys(getElement(driver, locator), key).perform();
     }
+
     public void pressKeyToElement(WebDriver driver, String locator, Keys key, String... restParameter) {
-        new Actions(driver).sendKeys(getElement(driver, castParameter(locator,restParameter)), key).perform();
+        new Actions(driver).sendKeys(getElement(driver, castParameter(locator, restParameter)), key).perform();
     }
 
     public void hightlightElement(WebDriver driver, String locator) {
@@ -382,10 +376,12 @@ public class BasePage {
     public void waitForElementVisible(WebDriver driver, String locator) {
         new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.visibilityOfElementLocated(getByLocator(locator)));
     }
+
     public boolean waitForListElementVisible(WebDriver driver, String locator) {
         return new WebDriverWait(driver, Duration.ofSeconds(30))
-                .until(ExpectedConditions.invisibilityOfAllElements(getListElements(driver,locator)));
+                .until(ExpectedConditions.invisibilityOfAllElements(getListElements(driver, locator)));
     }
+
     public void waitForElementVisible(WebDriver driver, String locator, String... restParameter) {
         new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.visibilityOfElementLocated(getByLocator(castParameter(locator, restParameter))));
     }
@@ -394,6 +390,7 @@ public class BasePage {
     public void waitForElementSelected(WebDriver driver, String locator) {
         new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeSelected(getByLocator(locator)));
     }
+
     public void waitForElementSelected(WebDriver driver, String locator, String restParameter) {
         new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeSelected(getByLocator(castParameter(locator, restParameter))));
     }
@@ -409,21 +406,23 @@ public class BasePage {
     public void waitForElementClickable(WebDriver driver, String locator) {
         new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeClickable(getByLocator(locator)));
     }
+
     public void waitForElementClickable(WebDriver driver, String locator, String... restParameter) {
-        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeClickable(getByLocator(castParameter(locator,restParameter))));
+        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeClickable(getByLocator(castParameter(locator, restParameter))));
     }
 
 
     public void refreshCurrentPage(WebDriver driver) {
         driver.navigate().refresh();
     }
-    public void uploadMultipleFiles(WebDriver driver, String... fileNames){
+
+    public void uploadMultipleFiles(WebDriver driver, String... fileNames) {
         String filePath = GlobalConstants.UPLOAD_PATH;
         String fullFileName = "";
-        for(String file: fileNames){
-            fullFileName += filePath+file+"\n";
+        for (String file : fileNames) {
+            fullFileName += filePath + file + "\n";
         }
-        fullFileName=fullFileName.trim();
+        fullFileName = fullFileName.trim();
         getElement(driver, BasePageUI.UPLOAD_FILE_TYPE).sendKeys(fullFileName);
 
 
@@ -434,9 +433,202 @@ public class BasePage {
         return waitForListElementVisible(driver, BasePageUI.LOADING_ICONS);
 
     }
+
     public boolean isSuccessMessageDisplayed(WebDriver driver) {
         waitForElementVisible(driver, BasePageUI.SUCCESS_MESSAGE);
-       System.out.println("qua step verify message");
+        System.out.println("qua step verify message");
         return isElementDisplayed(driver, BasePageUI.SUCCESS_MESSAGE);
+    }
+
+    //Sort Ascending (String)
+    public boolean isDataStringSortedAscending(WebDriver driver, String locator) {
+        //Khai báo 1 Array List
+        ArrayList<String> arrayList = new ArrayList<>();
+
+        //Tìm tất cả element matching vs điều kiện (Name/Price/..)
+        List<WebElement> elementList = driver.findElements(getByLocator(locator));
+
+        //Lấy text của từng element add vào ArrayList
+
+        for (WebElement element : elementList) {
+            arrayList.add(element.getText());
+        }
+        System.out.println("-------------Dữ liệu trên UI:---------------");
+
+        for (String name : arrayList) {
+            System.out.println(name);
+        }
+
+        //Copy qua 1 array list mới để SORT trong Code
+
+        ArrayList<String> sortedList = new ArrayList<>();
+        for (String child : arrayList) {
+            sortedList.add(child);
+        }
+
+        //Thực hiện SORT ASC
+        Collections.sort(sortedList);
+
+        System.out.println("------------Dữ liệu đã SORT ASC trong code:-------------");
+        for (String name : sortedList) {
+            System.out.println(name);
+        }
+
+        return sortedList.equals(arrayList);
+    }
+
+    //Sort Descending (String)
+    public boolean isDataStringSortedDescending(WebDriver driver, String locator) {
+        //Khai báo 1 Array List
+        ArrayList<String> arrayList = new ArrayList<>();
+
+        //Tìm tất cả element matching vs điều kiện (Name/Price/..)
+        List<WebElement> elementList = driver.findElements(getByLocator(locator));
+
+        //Lấy text của từng element add vào ArrayList
+
+        for (WebElement element : elementList) {
+            arrayList.add(element.getText());
+        }
+        System.out.println("-------------Dữ liệu trên UI:---------------");
+
+        for (String name : arrayList) {
+            System.out.println(name);
+        }
+
+        //Copy qua 1 array list mới để SORT trong Code
+
+        ArrayList<String> sortedList = new ArrayList<>();
+        for (String child : arrayList) {
+            sortedList.add(child);
+        }
+
+        //Thực hiện SORT ASC
+        Collections.sort(sortedList);
+        System.out.println("------------Dữ liệu đã SORT ASC trong code:-------------");
+        for (String name : sortedList) {
+            System.out.println(name);
+        }
+        //Reverse data để sort DESC
+        Collections.reverse(sortedList);
+
+        System.out.println("------------Dữ liệu đã SORT DESC trong code:-------------");
+        for (String name : sortedList) {
+            System.out.println(name);
+        }
+        return sortedList.equals(arrayList);
+    }
+
+    public boolean isDataFloadSortedAscending(WebDriver driver, String locator) {
+
+// Khai báo 1 arrayList
+        ArrayList<Float> arrayList = new ArrayList<Float>();
+
+        //Tìm tất cả element matching với điều kiện (Name/Price...)
+        List<WebElement> elementList = driver.findElements(getByLocator(locator));
+        System.out.println(elementList);
+
+        //Lấy text của từng element add vào ArrayList
+        for (WebElement element : elementList) {
+            arrayList.add(Float.parseFloat(element.getText().replace("$", "").trim()));
+            System.out.println(element);
+        }
+        System.out.println("--------------Dữ liệu trên UI:---------------");
+        for (Float name : arrayList) {
+            System.out.println(name);
+        }
+        //Copy qua 1 arrayList mới để SORT trong Code
+
+        ArrayList<Float> sortedList = new ArrayList<Float>();
+        for (Float child : arrayList) {
+            sortedList.add(child);
+        }
+        //Thực hiện sort asc
+        Collections.sort(sortedList);
+        System.out.println("------------Dữ liệu đã SORT trong code:-------------");
+        for (Float name : sortedList) {
+            System.out.println(name);
+        }
+        //Verify 2 array = nhau, nếu dữ liệu sort trên UI ko chính xác thì kq trả về false
+
+        return sortedList.equals(arrayList);
+    }
+    public boolean isDataFloadSortedDescending(WebDriver driver, String locator) {
+
+// Khai báo 1 arrayList
+        ArrayList<Float> arrayList = new ArrayList<Float>();
+
+        //Tìm tất cả element matching với điều kiện (Name/Price...)
+        List<WebElement> elementList = driver.findElements(getByLocator(locator));
+
+        //Lấy text của từng element add vào ArrayList
+        for (WebElement element : elementList) {
+            arrayList.add(Float.parseFloat(element.getText().replace("$", "").trim()));
+        }
+        System.out.println("--------------Dữ liệu trên UI:---------------");
+        for (Float name : arrayList) {
+            System.out.println(name);
+        }
+        //Copy qua 1 arrayList mới để SORT trong Code
+
+        ArrayList<Float> sortedList = new ArrayList<Float>();
+        for (Float child : arrayList) {
+            sortedList.add(child);
+        }
+        //Thực hiện sort asc
+        Collections.sort(sortedList);
+        //sx ngược lại
+        Collections.reverse(sortedList);
+        System.out.println("------------Dữ liệu đã SORT DESC trong code:-------------");
+        for (Float name : sortedList) {
+            System.out.println(name);
+        }
+        //Verify 2 array = nhau, nếu dữ liệu sort trên UI ko chính xác thì kq trả về false
+
+        return sortedList.equals(arrayList);
+    }
+
+    public boolean isDataDateSortedAscending(WebDriver driver, String locator) {
+        // Khai báo 1 arrayList
+        ArrayList<Date> arrayList = new ArrayList<Date>();
+
+        //Tìm tất cả element matching với điều kiện (Name/Price...)
+        List<WebElement> elementList = driver.findElements(By.xpath(locator));
+
+        //Lấy text của từng element add vào ArrayList
+        for (WebElement element : elementList) {
+            arrayList.add(convertStringToDate(element.getText()));
+        }
+        System.out.println("--------------Dữ liệu trên UI:---------------");
+        for (Date name : arrayList) {
+            System.out.println(name);
+        }
+        //Copy qua 1 arrayList mới để SORT trong Code
+
+        ArrayList<Date> sortedList = new ArrayList<Date>();
+        for (Date child : arrayList) {
+            sortedList.add(child);
+        }
+        //Thực hiện sort asc
+        Collections.sort(sortedList);
+        System.out.println("------------Dữ liệu đã SORT trong code:-------------");
+        for (Date name : sortedList) {
+            System.out.println(name);
+        }
+        //Verify 2 array = nhau, nếu dữ liệu sort trên UI ko chính xác thì kq trả về false
+
+        return sortedList.equals(arrayList);
+    }
+
+    public Date convertStringToDate(String dateInString) {
+        dateInString = dateInString.replace(",", "");
+        SimpleDateFormat format = new SimpleDateFormat("MMM dd yyyy");
+        Date date = null;
+        try {
+            date = format.parse(dateInString);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
     }
 }

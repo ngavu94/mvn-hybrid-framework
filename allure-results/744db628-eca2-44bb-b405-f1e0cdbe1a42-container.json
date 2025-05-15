@@ -1,0 +1,1 @@
+{"uuid":"744db628-eca2-44bb-b405-f1e0cdbe1a42","name":"com.nopcomerce.demo.TC_Register","children":["66c04019-5f5d-443e-b7b6-9e350f82f6a6"],"befores":[{"name":"BeforeClass","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1733298036032,"stop":1733298041864}],"afters":[],"start":1733298035963,"stop":1733298072816}

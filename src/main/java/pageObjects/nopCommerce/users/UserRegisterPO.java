@@ -20,11 +20,11 @@ public class UserRegisterPO extends BasePage {
     }
 
     public void enterToFirstNameTextbox(String firstName) {
-        senkeysToElement(driver, UserRegisterPageUI.FIRST_NAME_TEXTBOX,firstName);
+        sendkeysToElement(driver, UserRegisterPageUI.FIRST_NAME_TEXTBOX,firstName);
     }
 
     public void enterToLastNameTextbox(String lastName) {
-        senkeysToElement(driver, UserRegisterPageUI.LAST_NAME_TEXTBOX,lastName);
+        sendkeysToElement(driver, UserRegisterPageUI.LAST_NAME_TEXTBOX,lastName);
     }
 
 //    public void selectDayDropdown(String number) {
@@ -37,19 +37,19 @@ public class UserRegisterPO extends BasePage {
 //    }
 
     public void enterToEmailTextbox(String email) {
-        senkeysToElement(driver, UserRegisterPageUI.EMAIL_TEXTBOX,email);
+        sendkeysToElement(driver, UserRegisterPageUI.EMAIL_TEXTBOX,email);
     }
 
     public void enterToCompanyTextbox(String companyName) {
-        senkeysToElement(driver, UserRegisterPageUI.COMPANY_NAME_TEXTBOX,companyName);
+        sendkeysToElement(driver, UserRegisterPageUI.COMPANY_NAME_TEXTBOX,companyName);
     }
 
     public void enterToPasswordTextbox(String password) {
-        senkeysToElement(driver, UserRegisterPageUI.PASSWORD_TEXTBOX,password);
+        sendkeysToElement(driver, UserRegisterPageUI.PASSWORD_TEXTBOX,password);
     }
 
     public void enterToPasswordConfirmTextbox(String confirmPassword) {
-        senkeysToElement(driver, UserRegisterPageUI.PASSWORD_CONFIRMED_TEXTBOX,confirmPassword);
+        sendkeysToElement(driver, UserRegisterPageUI.PASSWORD_CONFIRMED_TEXTBOX,confirmPassword);
     }
 
     public void clickRegisterButton() {

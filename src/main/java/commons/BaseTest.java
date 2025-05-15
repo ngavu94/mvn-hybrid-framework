@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ThreadGuard;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
@@ -32,7 +33,7 @@ public class BaseTest {
         switch (browserList){
             case FIREFOX:
                 System.setProperty("webdriver.gecko.driver",projectPath+"\\browserDriver\\geckodriver.exe");
-                driver = new FirefoxDriver();
+                driver = ThreadGuard.protect(new FirefoxDriver());
                 break;
             case CHROME:
                 System.setProperty("webdriver.chrome.driver",projectPath+"\\browserDriver\\chromdriver.exe");
@@ -117,6 +118,12 @@ public class BaseTest {
     }
     protected void closeBrowerDriver(){
         driver.quit();
+    }
+
+    public String genRandomEmail(String preEmail){
+        Random ran = new Random();
+        String emailRan = preEmail+ ran.nextInt(100, 9999) + "@org.com.vn";
+        return emailRan;
     }
 
 }

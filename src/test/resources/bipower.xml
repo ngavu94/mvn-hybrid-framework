@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Bipower Automation Testing">
+
+    <listeners>
+        <listener class-name="commons.MethodListener"></listener>
+    </listeners>
+    <parameter name="url" value="https://bipower-staging.biplus.com.vn/"></parameter>
+    <parameter name="email" value="duongtv@biplus.com.vn"></parameter>
+    <parameter name="firstName" value="nga"></parameter>
+    <parameter name="lastName" value="Vu"></parameter>
+    <parameter name="password" value="123456aA@"></parameter>
+
+    <test name="Run on Chrome Browser">
+        <parameter name="browser" value="chrome"></parameter>
+        <parameter name="url" value="https://bipower-staging.biplus.com.vn/login"></parameter>
+        <classes>
+            <class name="com.bipower.login.TC_Login_Logout"></class>
+            <class name="com.bipower.timekeeping.TC_OverTime"></class>
+        </classes>
+    </test> <!-- Test -->
+
+</suite> <!-- Suite -->

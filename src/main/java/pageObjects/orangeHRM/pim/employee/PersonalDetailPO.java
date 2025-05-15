@@ -38,17 +38,17 @@ public class PersonalDetailPO extends EmployeeTabs {
     public void enterToFirstNameTextbox(String firstName) {
         sleepInSeconds(1);
         waitForElementVisible(driver, PersonalDetailPageUI.FIRST_NAME_TEXTBOX);
-        senkeysToElement(driver, PersonalDetailPageUI.FIRST_NAME_TEXTBOX, firstName);
+        sendkeysToElement(driver, PersonalDetailPageUI.FIRST_NAME_TEXTBOX, firstName);
     }
 
     public void enterToMiddleNameTextbox(String middleName) {
         waitForElementVisible(driver, PersonalDetailPageUI.MIDDLE_NAME_TEXTBOX);
-        senkeysToElement(driver, PersonalDetailPageUI.MIDDLE_NAME_TEXTBOX, middleName);
+        sendkeysToElement(driver, PersonalDetailPageUI.MIDDLE_NAME_TEXTBOX, middleName);
     }
 
     public void enterToLastNameTextbox(String lastName) {
         waitForElementVisible(driver, PersonalDetailPageUI.LAST_NAME_TEXTBOX);
-        senkeysToElement(driver, PersonalDetailPageUI.LAST_NAME_TEXTBOX, lastName);
+        sendkeysToElement(driver, PersonalDetailPageUI.LAST_NAME_TEXTBOX, lastName);
     }
 
     public String getEmployeeID() {
@@ -58,13 +58,13 @@ public class PersonalDetailPO extends EmployeeTabs {
 
     public void enterToDriverLicenseNumberTextbox(String driverLicenseNumber) {
         waitForElementVisible(driver, PersonalDetailPageUI.DRIVER_LICENCE_NUMBER_TEXTBOX);
-        senkeysToElement(driver, PersonalDetailPageUI.DRIVER_LICENCE_NUMBER_TEXTBOX, driverLicenseNumber);
+        sendkeysToElement(driver, PersonalDetailPageUI.DRIVER_LICENCE_NUMBER_TEXTBOX, driverLicenseNumber);
 
     }
 
     public void enterToLicenseExpiryDateTextbox(String licenseExpiryDate) {
         waitForElementVisible(driver, PersonalDetailPageUI.LICENCE_EXPIRY_DATE_TEXTBOX);
-        senkeysToElement(driver, PersonalDetailPageUI.LICENCE_EXPIRY_DATE_TEXTBOX, licenseExpiryDate);
+        sendkeysToElement(driver, PersonalDetailPageUI.LICENCE_EXPIRY_DATE_TEXTBOX, licenseExpiryDate);
     }
 
     public void selectToNationalityDropdown(String s) {
@@ -79,7 +79,7 @@ public class PersonalDetailPO extends EmployeeTabs {
 
     public void selectToDateOfBirthDropdown(String dateOfBirth) {
         waitForElementVisible(driver, PersonalDetailPageUI.DATE_OF_BIRTH_TEXTBOX);
-        senkeysToElement(driver, PersonalDetailPageUI.DATE_OF_BIRTH_TEXTBOX, dateOfBirth);
+        sendkeysToElement(driver, PersonalDetailPageUI.DATE_OF_BIRTH_TEXTBOX, dateOfBirth);
     }
 
     public void selectToGenderRadioButton() {

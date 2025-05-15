@@ -25,4 +25,10 @@ public class UserHomePO extends BasePage {
         clickToElement(driver, UserHomePageUI.MY_ACCOUNT_LINK);
         return PageGenerator.getUserCustomerInfoPage(driver);
     }
+
+    public SearchPO clickToSearchLink() {
+        waitForElementClickable(driver, UserHomePageUI.SEARCH_LINK);
+        clickToElement(driver, UserHomePageUI.SEARCH_LINK);
+        return PageGenerator.getSearchPageByLink(driver);
+    }
 }

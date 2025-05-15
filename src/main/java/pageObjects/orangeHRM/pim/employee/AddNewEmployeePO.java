@@ -14,17 +14,17 @@ public class AddNewEmployeePO extends BasePage {
 
     public void enterToFirstnameTextbox(String valueToSenkey) {
         waitForElementVisible(driver, AddNewEmployeePageUI.FIRST_NAME_TEXTBOX);
-        senkeysToElement(driver, AddNewEmployeePageUI.FIRST_NAME_TEXTBOX, valueToSenkey);
+        sendkeysToElement(driver, AddNewEmployeePageUI.FIRST_NAME_TEXTBOX, valueToSenkey);
     }
 
     public void enterToMiddlenameTextbox(String valueToSenkey) {
         waitForElementVisible(driver, AddNewEmployeePageUI.MIDDLE_NAME_TEXTBOX);
-        senkeysToElement(driver, AddNewEmployeePageUI.MIDDLE_NAME_TEXTBOX, valueToSenkey);
+        sendkeysToElement(driver, AddNewEmployeePageUI.MIDDLE_NAME_TEXTBOX, valueToSenkey);
     }
 
     public void enterToLastnameTextbox(String valueToSenkey) {
         waitForElementVisible(driver, AddNewEmployeePageUI.LAST_NAME_TEXTBOX);
-        senkeysToElement(driver, AddNewEmployeePageUI.LAST_NAME_TEXTBOX, valueToSenkey);
+        sendkeysToElement(driver, AddNewEmployeePageUI.LAST_NAME_TEXTBOX, valueToSenkey);
     }
 
     public String getEmployeeID() {

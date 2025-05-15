@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>automationTest</groupId>
-    <artifactId>maven-hybrid-nopcommerce</artifactId>
+    <artifactId>maven-hybrid-framework</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <!-- Khai báo biến - Global Variable -->
@@ -181,6 +181,16 @@
             <version>0.5</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.9.8</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.8</version>
+        </dependency>
 
     </dependencies>
 
@@ -207,7 +217,7 @@
                 <configuration>
                     <!-- Run TestNG xml file -->
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/runNopCommerceUser.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/bipower.xml</suiteXmlFile>
                     </suiteXmlFiles>
 
                     <!-- Argument -->

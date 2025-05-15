@@ -18,6 +18,9 @@ public class PageGenerator {
     public  static UserCustomerInfoPO getUserCustomerInfoPage(WebDriver driver){
         return  new UserCustomerInfoPO(driver);
     }
+    public  static SearchPO getSearchPageByLink(WebDriver driver){
+        return  new SearchPO(driver);
+    }
     public static UserAddressPO getUserAddressPage(WebDriver driver){
         return new UserAddressPO(driver);
     }
